@@ -1,0 +1,3 @@
+export const GET_GIFS = "GET_GIFS";
+export const GET_GIFS_SUCCESS = "GET_GIF_SUCCESS";
+export const GET_GIFS_SEARCHFIELD = "GET_GIF_SEARCHFIELD";
