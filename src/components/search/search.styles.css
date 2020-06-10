@@ -4,11 +4,6 @@
   justify-content: center;
   align-content: flex-end;
 }
-#btn {
-  position: absolute;
-  top: 40px;
-  right: -15%;
-}
 
 .no-result-message {
   display: flex;
@@ -22,9 +17,21 @@
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
-  margin-top: 20px;
-  width: 50%;
+  margin-top: 10px;
+  width: 30%;
   margin: auto;
   margin-top: 50px;
   text-align: center;
+}
+
+.row {
+  min-height: 30vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.container-fluid form {
+  width: 65%;
+  margin: auto;
 }

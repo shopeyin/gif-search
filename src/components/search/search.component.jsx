@@ -41,7 +41,7 @@ class Search extends React.Component {
 
           setTimeout(
             () => this.setState({ loading: false, emptyArray: 1 }),
-            2000
+            1000
           )
         )
         .catch((error) => {
@@ -54,7 +54,7 @@ class Search extends React.Component {
     const { gifs, searchField, loading, emptyArray } = this.state;
     return (
       <div className="App">
-        <div className="row search">
+        {/* <div className="row search">
           <div className="col col-md-5">
             <form className="form" onSubmit={this.submitFormHandler}>
               <div className="form-group">
@@ -71,7 +71,25 @@ class Search extends React.Component {
               </button>
             </form>
           </div>
+        </div> */}
+        <div className="container-fluid">
+          <form onSubmit={this.submitFormHandler} className="row form">
+            <div className="col-md-10 b">
+              <input
+                type="search"
+                placeholder="Search gif...."
+                className="form-control"
+                name="name"
+              />
+            </div>
+            <div className="col-md-1 b d-flex justify-content-center">
+              <button id="btn" className="btn btn-warning" type="submit">
+                Search
+              </button>
+            </div>
+          </form>
         </div>
+
         {gifs.length === 0 && emptyArray === 1 ? (
           <div className="no-result-message">No result found</div>
         ) : (
