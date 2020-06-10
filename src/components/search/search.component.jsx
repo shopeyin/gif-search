@@ -109,6 +109,7 @@ class Search extends React.Component {
       gifs: [],
       searchField: "",
       loading: false,
+      emptyArray: 0,
     };
   }
   submitFormHandler = (event) => {
@@ -118,9 +119,6 @@ class Search extends React.Component {
       searchField: event.target.name.value,
     });
   };
-  componentDidMount() {
-    console.log(this.state);
-  }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.searchField !== this.state.searchField) {
@@ -130,18 +128,25 @@ class Search extends React.Component {
         .then((response) => response.json())
         .then(
           (gif) => this.setState({ gifs: gif.data, loading: true }),
-          setTimeout(() => this.setState({ loading: false }), 2000)
+
+          setTimeout(
+            () => this.setState({ loading: false, emptyArray: 1 }),
+            2000
+          )
         )
         .catch((error) => {
           console.log(error);
         });
-      console.log("component did update");
     }
   }
 
   render() {
-    const { gifs, searchField, loading } = this.state;
-    console.log(this.state);
+    const { gifs, searchField, loading, emptyArray } = this.state;
+    // if (gifs.length === 0 && emptyArray === 1) {
+    //   console.log("working");
+    // }
+    // console.log(`render ${this.state.gifs.length}`);
+    // console.log(`empty ${emptyArray}`);
     return (
       <div className="App">
         <div className="row search">
@@ -162,7 +167,11 @@ class Search extends React.Component {
             </form>
           </div>
         </div>
-
+        {gifs.length === 0 && emptyArray === 1 ? (
+          <div className="no-result-message">No result found</div>
+        ) : (
+          " "
+        )}
         {loading ? (
           <div className="row animation">
             <div className="col-md-12 d-flex justify-content-center align-items-center ">

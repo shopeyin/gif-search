@@ -11,6 +11,7 @@ const Card = (props) => {
           src={`${props.item.images.fixed_height_small_still.url}`}
           className="img-fluid"
         />
+        
       </Link>
 
       {/* 
