@@ -27,7 +27,6 @@ class GifDetail extends React.Component {
     let url;
     if (gifImages.images && gifImages.images.original) {
       url = gifImages.images.downsized_large.url;
-      console.log(gifImages);
     }
 
     return (
